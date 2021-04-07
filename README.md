@@ -2,6 +2,6 @@
 
 
 
-cd front
-npm install
-npm run
+cd front<br/>
+npm install<br/>
+npm run<br/>
