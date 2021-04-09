@@ -4,4 +4,4 @@
 
 cd front<br/>
 npm install<br/>
-npm run<br/>
+npm start<br/>
