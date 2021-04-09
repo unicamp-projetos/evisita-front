@@ -4,12 +4,12 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 
 
-const Routes: React.FC = () => {
+const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login} />
-                <Route path="/signup" exact component={SignUp} />
+                <Route path="/signup" component={SignUp} />
 
             </Switch>
         </BrowserRouter>

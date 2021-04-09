@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 import './styles-login.css'
 
-const Login: React.FC = () => {
+const Login = () => {
 
-    const [email, setEmail] = useState<HTMLInputElement["value"]>();
-    const [password, setPassword] = useState<HTMLInputElement["value"]>();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
 
-    function handleSubmit(event: { preventDefault: () => void; }) {
+    function handleSubmit(event) {
         event.preventDefault();
 
         alert(`email: ${email}`);

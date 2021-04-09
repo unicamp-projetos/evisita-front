@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 
 //import './styles-login.css'
 
-const SignUp: React.FC = () => {
+const SignUp = () => {
 
-    const [name, setName] = useState<HTMLInputElement["value"]>();
-    const [email, setEmail] = useState<HTMLInputElement["value"]>();
-    const [password, setPassword] = useState<HTMLInputElement["value"]>();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
 
 
-    function handleSubmit(event: { preventDefault: () => void; }) {
+    function handleSubmit(event) {
         event.preventDefault();
 
         alert(`email: ${email}`);

@@ -3,15 +3,7 @@ import React, {
 } from 'react';
 import Routes from './routes'
 
-interface User {
-  name: string;
-  login: string;
-}
-
-
-const App: React.FC = () => {
-
-
+const App = () => {
 
   return (
     <div className="container">
