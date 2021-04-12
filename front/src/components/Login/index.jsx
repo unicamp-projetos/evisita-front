@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import api from '../../services/api';
+import api from '../../services/api';
 
 import './styles-login.css'
 
-const Login = () => {
+export default function Login({ history }) {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
-        alert(`email: ${email}`);
+        await api.post('/signin', { email, password })
+            .then(response => {
+                if (response.status === 200) {
+                    history.push("/home");
+                }
+            })
+            .catch(error => {
+                if (error.response.status === 400) {
+                    alert("Usuário ou senha inválidos!");
+                }
+                if (error.response.status === 500) {
+                    alert("Something went wrong!");
+                }
+            });
     }
 
 
@@ -43,6 +56,3 @@ const Login = () => {
         </div>
     );
 }
-
-
-export default Login;
