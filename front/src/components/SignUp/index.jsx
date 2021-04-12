@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-//import api from '../../services/api';
+import api from '../../services/api';
 
 //import './styles-login.css'
 
-const SignUp = () => {
+export default function SignUp({ history }) {
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -11,10 +11,24 @@ const SignUp = () => {
 
 
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
-        alert(`email: ${email}`);
+        await api.post('/signup', { email, password })
+            .then(response => {
+                if (response.status === 200) {
+                    alert("Cadastro concluído!")
+                    history.push("/home");
+                }
+            })
+            .catch(error => {
+                if (error.response.status === 400) {
+                    alert("Usuário já cadastrado!");
+                }
+                if (error.response.status === 500) {
+                    alert("Something went wrong!");
+                }
+            });
     }
 
 
@@ -39,8 +53,10 @@ const SignUp = () => {
                     onChange={e => setEmail(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="password"
                     name="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     required
                     placeholder="Senha"
                     value={password}
@@ -51,6 +67,3 @@ const SignUp = () => {
         </div>
     );
 }
-
-
-export default SignUp;

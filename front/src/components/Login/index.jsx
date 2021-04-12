@@ -43,7 +43,7 @@ export default function Login({ history }) {
                     onChange={e => setEmail(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="password"
                     name="password"
                     required
                     placeholder="Senha"

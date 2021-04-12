@@ -17,7 +17,7 @@ export default function Home({ history }) {
         }
 
         loadPatients()
-    }, [])
+    }, []);
 
     return (
         <div>
@@ -26,7 +26,7 @@ export default function Home({ history }) {
                 {patients.map(patient => (
                     <li key={patient}>
                         <strong>{patient}</strong>
-                        {/* <button className="book" onClick={handleBook}>Book a time</button> */}
+                        <button className="book">Escolher</button> {/*onClick={handleBook}*/}
                     </li>
                 ))}
             </ul>
